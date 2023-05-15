@@ -1,0 +1,11 @@
+{%extends 'base.html'%}
+
+{%block content%}
+        <h2>Student Update</h2>
+        <form method="POST">
+            {{StudForm.hidden_tag()}}
+            {{StudForm.name.label}} {{StudForm.name()}}
+            {{StudForm.age.label}} {{StudForm.age()}}
+            {{StudForm.submit()}}
+        </form>
+{%endblock%}

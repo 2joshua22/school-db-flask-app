@@ -1,0 +1,57 @@
+{%extends 'base.html'%}
+
+{%block content%}
+    <h2>Student Add</h2>
+    <form method="POST">
+        {{StudForm.hidden_tag()}}
+        {{StudForm.name.label}} {{StudForm.name()}}
+        {{StudForm.age.label}} {{StudForm.age()}}
+        {{StudForm.submit()}}
+    </form><br>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        {%for i in Students%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.age}}</td>
+            <td><a href="{{url_for('studdelete',name=i.name)}}">X</a></td>
+            <td><a href="{{url_for('studupdate',name=i.name)}}">+</a></td>
+        </tr>
+        {%endfor%}
+    </table><br>
+    
+    <h2>Staff Add</h2>
+    <form method="POST">
+        {{StafForm.hidden_tag()}}
+        {{StafForm.name.label}} {{StafForm.name()}}
+        {{StafForm.subject.label}} {{StafForm.subject()}}
+        {{StafForm.submit()}}
+    </form><br>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        {%for i in Staffs%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.subject}}</td>
+            <td><a href="{{url_for('stafdelete',name=i.name)}}">X</a></td>
+            <td><a href="{{url_for('stafupdate',name=i.name)}}">+</a></td>
+        </tr>
+        {%endfor%}
+    </table>
+{%endblock%}
+    
+
